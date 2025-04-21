@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人信息采集表</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <style>
+        /* 自定义样式，可根据需要调整 */
+        .hover-rotate {
+            transition: transform 0.3s ease;
+        }
+
+        .hover-rotate:hover {
+            transform: rotate(360deg);
+        }
+
+        .hover-move {
+            transition: transform 0.3s ease;
+        }
+
+        .hover-move:hover {
+            transform: rotate(5deg) translate(5px, -5px);
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .scale-hover {
+            transition: transform 0.3s ease;
+        }
+
+        .scale-hover:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body class="bg-cover bg-fixed bg-center min-h-screen flex justify-center items-center"
+    style="background-image: url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+    <div class="bg-white/80 p-8 rounded-xl shadow-xl max-w-4xl w-full fade-in">
+        <h1 class="text-3xl font-bold text-center text-gray-800 pb-4 border-b border-gray-200 hover-move">
+            <i class="fas fa-user-edit hover-rotate"></i> 个人信息采集表
+        </h1>
+        <form action="#" method="post" class="mt-8">
+            <!-- 基本信息 -->
+            <div class="border-2 border-blue-500 rounded-lg p-6 mb-6 bg-white/70 scale-hover">
+                <h2 class="text-2xl font-bold text-blue-500 mb-4">
+                    <i class="fas fa-id-card hover-rotate"></i> 基本信息
+                </h2>
+                <div class="text-center mb-4">
+                    <img src="img/my-img.jpg" alt="本人照片" class="rounded-full w-40 h-40 object-cover mx-auto">
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="fade-in">
+                        <label for="name" class="block text-gray-700 font-bold mb-2">
+                            <i class="fas fa-user hover-rotate"></i> 姓名
+                        </label>
+                        <input type="text" id="name" name="name" required maxlength="20" value="徐佳慧"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div class="fade-in">
+                        <label class="block text-gray-700 font-bold mb-2">
+                            <i class="fas fa-venus-mars hover-rotate"></i> 性别
+                        </label>
+                        <div class="flex space-x-4">
+                            <label class="flex items-center">
+                                <input type="radio" name="gender" value="male" class="mr-2"> 男
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="gender" value="female" checked class="mr-2"> 女
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="gender" value="other" class="mr-2"> 其他
+                            </label>
+                        </div>
+                    </div>
+                    <div class="fade-in">
+                        <label for="birthdate" class="block text-gray-700 font-bold mb-2">
+                            <i class="fas fa-birthday-cake hover-rotate"></i> 出生日期
+                        </label>
+                        <input type="date" id="birthdate" name="birthdate" required value="2006-05-10"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div class="fade-in">
+                        <label for="health" class="block text-gray-700 font-bold mb-2">
+                            <i class="fas fa-heartbeat hover-rotate"></i> 健康状况
+                        </label>
+                        <select id="health" name="health" required
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                            <option value="">请选择健康状况</option>
+                            <option value="excellent" selected>优秀</option>
+                            <option value="good">良好</option>
+                            <option value="fair">一般</option>
+                            <option value="poor">较差</option>
+                        </select>
+                    </div>
+                    <div class="fade-in">
+                        <label for="marital" class="block text-gray-700 font-bold mb-2">
+                            <i class="fas fa-ring hover-rotate"></i> 婚姻状况
+                        </label>
+                        <select id="marital" name="marital" required
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                            <option value="">请选择婚姻状况</option>
+                            <option value="single" selected>未婚</option>
+                            <option value="married">已婚</option>
+                            <option value="divorced">离异</option>
+                            <option value="widowed">丧偶</option>
+                        </select>
+                    </div>
+                    <div class="fade-in">
+                        <label for="idcard" class="block text-gray-700 font-bold mb-2">
+                            <i class="fas fa-id-badge hover-rotate"></i> 身份证号
+                        </label>
+                        <input type="text" id="idcard" name="idcard" required maxlength="18" pattern="\d{17}[\dXx]"
+                            value="11010519491231002X"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div class="fade-in">
+                        <label for="phone" class="block text-gray-700 font-bold mb-2">
+                            <i class="fas fa-phone hover-rotate"></i> 手机号码
+                        </label>
+                        <input type="tel" id="phone" name="phone" required maxlength="11" pattern="\d{11}"
+                            value="13812345678"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div class="fade-in">
+                        <label for="email" class="block text-gray-700 font-bold mb-2">
+                            <i class="fas fa-envelope hover-rotate"></i> 电子邮箱
+                        </label>
+                        <input type="email" id="email" name="email" required maxlength="50" value="zhangsan@example.com"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div class="col-span-2 fade-in">
+                        <label for="address" class="block text-gray-700 font-bold mb-2">
+                            <i class="fas fa-map-marker-alt hover-rotate"></i> 家庭住址
+                        </label>
+                        <input type="text" id="address" name="address" required maxlength="100"
+                            value="XX省XX市XX区XX路XX号"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                </div>
+            </div>
+            <!-- 教育背景 -->
+            <div class="border-2 border-blue-500 rounded-lg p-6 mb-6 bg-white/70 scale-hover">
+                <h2 class="text-2xl font-bold text-blue-500 mb-4">
+                    <i class="fas fa-graduation-cap hover-rotate"></i> 教育背景
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="fade-in">
+                        <label for="education" class="block text-gray-700 font-bold mb-2">
+                            <i class="fas fa-certificate hover-rotate"></i> 最高学历
+                        </label>
+                        <select id="education" name="education" required
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                            <option value="">请选择学历</option>
+                            <option value="bachelor" selected>本科</option>
+                            <option value="highschool">高中</option>
+                            <option value="college">大专</option>
+                            <option value="master">硕士</option>
+                            <option value="phd">博士</option>
+                        </select>
+                    </div>
+                    <div class="fade-in">
+                        <label for="school" class="block text-gray-700 font-bold mb-2">
+                            <i class="fas fa-school hover-rotate"></i> 毕业院校
+                        </label>
+                        <select id="school" name="school" required
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                            <option value="">请选择毕业院校</option>
+                            <option value="tsinghua" selected>清华大学</option>
+                            <option value="pku">北京大学</option>
+                            <option value="zju">浙江大学</option>
+                            <option value="fudan">复旦大学</option>
+                            <option value="sjtu">上海交通大学</option>
+                            <option value="nju">南京大学</option>
+                            <option value="ustc">中国科学技术大学</option>
+                            <option value="hust">华中科技大学</option>
+                            <option value="whu">武汉大学</option>
+                            <option value="sysu">中山大学</option>
+                            <option value="other">其他院校</option>
+                        </select>
+                    </div>
+                    <div class="fade-in">
+                        <label for="major" class="block text-gray-700 font-bold mb-2">
+                            <i class="fas fa-book hover-rotate"></i> 专业
+                        </label>
+                        <select id="major" name="major" required
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                            <option value="">请选择专业</option>
+                            <option value="computer" selected>计算机科学与技术</option>
+                            <option value="software">软件工程</option>
+                            <option value="electronic">电子信息工程</option>
+                            <option value="automation">自动化</option>
+                            <option value="math">数学与应用数学</option>
+                            <option value="physics">物理学</option>
+                            <option value="chemistry">化学</option>
+                            <option value="biology">生物科学</option>
+                            <option value="business">工商管理</option>
+                            <option value="economics">经济学</option>
+                            <option value="finance">金融学</option>
+                            <option value="law">法学</option>
+                            <option value="literature">汉语言文学</option>
+                            <option value="foreign">外语</option>
+                            <option value="other">其他专业</option>
+                        </select>
+                    </div>
+                    <div class="fade-in">
+                        <label for="graduation" class="block text-gray-700 font-bold mb-2">
+                            <i class="fas fa-calendar-alt hover-rotate"></i> 毕业时间
+                        </label>
+                        <input type="date" id="graduation" name="graduation" required value="2018-07-01"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                </div>
+            </div>
+            <!-- 工作经历 -->
+            <div class="border-2 border-blue-500 rounded-lg p-6 mb-6 bg-white/70 scale-hover">
+                <h2 class="text-2xl font-bold text-blue-500 mb-4">
+                    <i class="fas fa-briefcase hover-rotate"></i> 工作经历
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="fade-in">
+                        <label for="company" class="block text-gray-700 font-bold mb-2">
+                            <i class="fas fa-building hover-rotate"></i> 当前公司
+                        </label>
+                        <input type="text" id="company" name="company" maxlength="50" value="XX科技有限公司"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div class="fade-in">
+                        <label for="position" class="block text-gray-700 font-bold mb-2">
+                            <i class="fas fa-user-tie hover-rotate"></i> 职位
+                        </label>
+                        <input type="text" id="position" name="position" maxlength="30" value="软件工程师"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div class="fade-in">
+                        <label for="salary" class="block text-gray-700 font-bold mb-2">
+                            <i class="fas fa-money-bill-wave hover-rotate"></i> 期望薪资
+                        </label>
+                        <select id="salary" name="salary"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                            <option value="">请选择</option>
+                            <option value="15k-20k" selected>15,000-20,000元</option>
+                            <option value="5k以下">5,000元以下</option>
+                            <option value="5k-10k">5,000-10,000元</option>
+                            <option value="10k-15k">10,000-15,000元</option>
+                            <option value="20k以上">20,000元以上</option>
+                        </select>
+                    </div>
+                    <div class="fade-in">
+                        <label class="block text-gray-700 font-bold mb-2">
+                            <i class="fas fa-laptop-code hover-rotate"></i> 掌握技能
+                        </label>
+                        <div class="flex space-x-4">
+                            <label class="flex items-center">
+                                <input type="checkbox" name="skills" value="html" checked class="mr-2"> HTML
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" name="skills" value="css" checked class="mr-2"> CSS
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" name="skills" value="java" class="mr-2"> Java
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" name="skills" value="python" class="mr-2"> Python
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" name="skills" value="c" class="mr-2"> C语言
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-span-2 fade-in">
+                        <label for="experience" class="block text-gray-700 font-bold mb-2">
+                            <i class="fas fa-project-diagram hover-rotate"></i> 工作经历
+                        </label>
+                        <textarea id="experience" name="experience" maxlength="500"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">曾在XX公司参与多个大型项目的开发，负责前端页面的搭建和优化等工作。</textarea>
+                    </div>
+                    <div class="col-span-2 fade-in">
+                        <label for="selfintro" class="block text-gray-700 font-bold mb-2">
+                            <i class="fas fa-comment hover-rotate"></i> 自我介绍
+                        </label>
+                        <textarea id="selfintro" name="selfintro" required maxlength="300"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">本人具备扎实的计算机专业知识和丰富的项目经验，熟练掌握前端开发技术，善于团队协作，有良好的沟通能力。</textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center fade-in">
+                <button type="submit"
+                    class="px-6 py-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:ring-2 focus:ring-blue-400 focus:outline-none scale-hover">
+                    <i class="fas fa-paper-plane"></i> 提交
+                </button>
+                <button type="reset"
+                    class="px-6 py-3 bg-red-500 text-white rounded-md hover:bg-red-600 focus:ring-2 focus:ring-red-400 focus:outline-none scale-hover">
+                    <i class="fas fa-redo"></i> 重置
+                </button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>    
