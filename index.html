@@ -9,23 +9,23 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
     <style>
         /* 自定义样式，可根据需要调整 */
-        .hover-rotate {
+       .hover-rotate {
             transition: transform 0.3s ease;
         }
 
-        .hover-rotate:hover {
+       .hover-rotate:hover {
             transform: rotate(360deg);
         }
 
-        .hover-move {
+       .hover-move {
             transition: transform 0.3s ease;
         }
 
-        .hover-move:hover {
-            transform: rotate(5deg) translate(5px, -5px);
+       .hover-move:hover {
+            transform: rotate(8deg) translate(8px, -8px);
         }
 
-        .fade-in {
+       .fade-in {
             animation: fadeIn 0.5s ease-out;
         }
 
@@ -40,12 +40,26 @@
             }
         }
 
-        .scale-hover {
+       .scale-hover {
             transition: transform 0.3s ease;
         }
 
-        .scale-hover:hover {
+       .scale-hover:hover {
             transform: scale(1.05);
+        }
+
+        /* 新增的标题动画 */
+       .title-move {
+            animation: titleMove 1s ease-out;
+        }
+
+        @keyframes titleMove {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(0);
+            }
         }
     </style>
 </head>
@@ -59,7 +73,7 @@
         <form action="#" method="post" class="mt-8">
             <!-- 基本信息 -->
             <div class="border-2 border-blue-500 rounded-lg p-6 mb-6 bg-white/70 scale-hover">
-                <h2 class="text-2xl font-bold text-blue-500 mb-4">
+                <h2 class="text-2xl font-bold text-blue-500 mb-4 title-move">
                     <i class="fas fa-id-card hover-rotate"></i> 基本信息
                 </h2>
                 <div class="text-center mb-4">
@@ -150,14 +164,14 @@
                             <i class="fas fa-map-marker-alt hover-rotate"></i> 家庭住址
                         </label>
                         <input type="text" id="address" name="address" required maxlength="100"
-                            value="XX省XX市XX区XX路XX号"
+                            value="山东省烟台市芝罘区"
                             class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
                     </div>
                 </div>
             </div>
             <!-- 教育背景 -->
             <div class="border-2 border-blue-500 rounded-lg p-6 mb-6 bg-white/70 scale-hover">
-                <h2 class="text-2xl font-bold text-blue-500 mb-4">
+                <h2 class="text-2xl font-bold text-blue-500 mb-4 title-move">
                     <i class="fas fa-graduation-cap hover-rotate"></i> 教育背景
                 </h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -182,7 +196,7 @@
                         <select id="school" name="school" required
                             class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
                             <option value="">请选择毕业院校</option>
-                            <option value="tsinghua" selected>清华大学</option>
+                            <option value="tsinghua" selected>鲁东大学</option>
                             <option value="pku">北京大学</option>
                             <option value="zju">浙江大学</option>
                             <option value="fudan">复旦大学</option>
@@ -202,8 +216,8 @@
                         <select id="major" name="major" required
                             class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
                             <option value="">请选择专业</option>
-                            <option value="computer" selected>计算机科学与技术</option>
-                            <option value="software">软件工程</option>
+                            <option value="computer" selected>软件工程</option>
+                            <option value="software">计算机科学与技术</option>
                             <option value="electronic">电子信息工程</option>
                             <option value="automation">自动化</option>
                             <option value="math">数学与应用数学</option>
@@ -230,7 +244,7 @@
             </div>
             <!-- 工作经历 -->
             <div class="border-2 border-blue-500 rounded-lg p-6 mb-6 bg-white/70 scale-hover">
-                <h2 class="text-2xl font-bold text-blue-500 mb-4">
+                <h2 class="text-2xl font-bold text-blue-500 mb-4 title-move">
                     <i class="fas fa-briefcase hover-rotate"></i> 工作经历
                 </h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -273,45 +287,10 @@
                             <label class="flex items-center">
                                 <input type="checkbox" name="skills" value="css" checked class="mr-2"> CSS
                             </label>
-                            <label class="flex items-center">
-                                <input type="checkbox" name="skills" value="java" class="mr-2"> Java
-                            </label>
-                            <label class="flex items-center">
-                                <input type="checkbox" name="skills" value="python" class="mr-2"> Python
-                            </label>
-                            <label class="flex items-center">
-                                <input type="checkbox" name="skills" value="c" class="mr-2"> C语言
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col-span-2 fade-in">
-                        <label for="experience" class="block text-gray-700 font-bold mb-2">
-                            <i class="fas fa-project-diagram hover-rotate"></i> 工作经历
-                        </label>
-                        <textarea id="experience" name="experience" maxlength="500"
-                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">曾在XX公司参与多个大型项目的开发，负责前端页面的搭建和优化等工作。</textarea>
-                    </div>
-                    <div class="col-span-2 fade-in">
-                        <label for="selfintro" class="block text-gray-700 font-bold mb-2">
-                            <i class="fas fa-comment hover-rotate"></i> 自我介绍
-                        </label>
-                        <textarea id="selfintro" name="selfintro" required maxlength="300"
-                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">本人具备扎实的计算机专业知识和丰富的项目经验，熟练掌握前端开发技术，善于团队协作，有良好的沟通能力。</textarea>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center fade-in">
-                <button type="submit"
-                    class="px-6 py-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:ring-2 focus:ring-blue-400 focus:outline-none scale-hover">
-                    <i class="fas fa-paper-plane"></i> 提交
-                </button>
-                <button type="reset"
-                    class="px-6 py-3 bg-red-500 text-white rounded-md hover:bg-red-600 focus:ring-2 focus:ring-red-400 focus:outline-none scale-hover">
-                    <i class="fas fa-redo"></i> 重置
-                </button>
-            </div>
-        </form>
-    </div>
-</body>
-
-</html>    
+							<label class="flex items-center">
+							    <input type="checkbox" name="skills" value="html" checked class="mr-2"> java
+							</label>
+							<label class="flex items-center">
+							    <input type="checkbox" name="skills" value="html" checked class="mr-2"> c语言
+							</label>
+                            <label class="flex
